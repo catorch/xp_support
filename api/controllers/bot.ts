@@ -62,8 +62,8 @@ export async function generateBotMessage(req: Request, res: Response) {
 
         const rawResponse = await agent.executePrompt(systemPromptMsg, outputInstructionsMsg, chatMsgs)
         console.log(rawResponse?.choices?.[0]?.message?.content)
-        const response = JSON.parse(jsonrepair(agent.extractResponse(rawResponse?.choices?.[0]?.message?.content?.trim())))
-        sendJSONresponse(res, 200, { status: 'OK', payload: response })
+        // const response = JSON.parse(jsonrepair(agent.extractResponse(rawResponse?.choices?.[0]?.message?.content?.trim())))
+        sendJSONresponse(res, 200, { status: 'OK', payload: rawResponse?.choices?.[0]?.message?.content?.trim() })
         return
     } catch (e) {
         console.error(e)
