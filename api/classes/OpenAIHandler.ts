@@ -14,7 +14,7 @@ class OpenAIHandler {
     constructor({
         modelName, stream = true, temperature = 1.0
     }: { modelName?: string, stream?: boolean, temperature?: number }) {
-        this.modelName = modelName ?? 'gpt-4'
+        this.modelName = modelName ?? 'gpt-4-0125-preview'
         this.stream = stream
         this.temperature = temperature ?? 1.0
         this.openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! })
